@@ -1,0 +1,66 @@
+<!-- x is the pointer for the sql return. Basically, whatever sql is used in the controller is what is returned. From there use {{x.(variable in database)}} to get data -->
+<div>
+        <table class="table table-striped">
+        <tr><div class="col-xs-12 col-sm-3 col-lg-2">Search Program field/Comment field: <input type="input" style="margin-top:10px;" ng-model="search" placeholder="search"></div>
+            
+            <div class="col-xs-12 col-sm-3 col-lg-2">Search Location: <select style="width: 170px;" class="form-control" id="Location" ng-model="Location">
+                    <option value="">--Location--</option>
+                    <option value="Central">Central</option>
+                    <option value="Bookmobile">Bookmobile</option>
+                    <option value="Keystone">Keystone</option>
+                    <option value="North Branch">North Branch</option>
+                    <option value="South Branch">South Branch</option>
+                    <option value="West River">West River</option>
+                </select></div>
+            <div class="col-xs-12 col-sm-3 col-lg-2">Search Department: <select style="width: 170px;" class="form-control" id="Department" ng-model="Department">
+                    <option value="">--Department--</option>
+                    <option value="TSD">TSD</option>
+                    <option value="Children's">Children's</option>
+                    <option value="Circulation">Circulation</option>
+                    <option value="Adult Services">Adult Services</option>
+                    <option value="Adminstration">Adminstration</option>
+                    <option value="Young Adult">Young Adult</option>
+                    <option value="Clerk Treasurer">Clerk Treasurer</option>
+                    <option value="Public Relations">Public Relations</option>
+                    <option value="Audio Visual">Audio Visual</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Project Read">Project Read</option>
+                    <option value="Bookmobile">Bookmobile</option>
+                </select></div>
+            <div class="col-xs-12 col-sm-3 col-lg-2">Open/Closed: <select style="width: 170px;" class="form-control" id="Building" ng-init="EventFilt.Open ='OpenSa Ank'"ng-model="EventFilt.Open" ><!--ng-init="EventFilt.fBuilding=building"-->
+                    <option value="OpenSa Ank">Open Tickets</option><!--*-->
+                    <option value="ClosedSa Ank">Closed Tickets</option><!--None-->
+                    <option value="">All</option><!--the "Sa Ank" bit is to make the values very unique for finding them later-->                    
+                </select></div>
+        </tr>
+        <tr><div style="margin-top: 20px;"></div></tr>
+        <tr>
+            <td>PR #</td>
+            <td>Date Entered</td>
+            <td>Date Needed By</td>
+            <td>Program Date</td>
+            <td>Project Type</td>
+            <td>Other</td>
+            <td>Options</td>
+            <td>Program</td>
+            <td>Comments</td>
+            <td>Requested by</td>
+            <td>Assigned to</td>
+        </tr>
+            <!--ng-repeat allows for autogeneration of tables -->
+        <tr ng-repeat="x in data | filter:search | filter:Location| filter:Department| filter: EventFilt.Open">
+            <td><a ng-href="http://10.66.5.27:3003/#/ticket/{{x.id}}">{{x.id}}</a></td>
+            <td>{{x.TCREATE}}</td>
+            <td>{{x.DTRC}}</td>
+            <td>{{x.PDate}}</td>
+            <td>{{x.WhichPro}}<!--generated via server--></td>
+            <td>{{x.v_Unlisted}}</td>
+            <td>{{x.PleaseInd}}<!--generated via server--></td>
+            <td>{{x.v_Program}}</td>
+            <td>{{x.v_Detail}}</td>
+            <td>{{x.v_Name}}</td>
+            <td><!--{{Assigned to}}--></td>
+            <!--<td><a ng-href="#ticket/{{x.idTicket}}">(Ticket)</a></td>-->
+        </tr>
+        </table>
+</div>

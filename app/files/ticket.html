@@ -1,0 +1,148 @@
+<div>
+    <ng-form id="ticket" name="ticket" action="" novalidate>
+    <table class="table table-striped">
+        
+        <tr>
+            <td>PR#: {{x.id}}</td>
+        </tr>
+        <tr>
+            <td>Date Received: {{x.TCREATE}}</td>
+        </tr>
+        <tr>
+            <td>Location: <select style="width: 170px;" class="form-control" id="Location" ng-model="ticket.t_Location">
+                    <option value="">--Location--</option>
+                    <option value="Central">Central</option>
+                    <option value="Bookmobile">Bookmobile</option>
+                    <option value="Keystone">Keystone</option>
+                    <option value="North Branch">North Branch</option>
+                    <option value="South Branch">South Branch</option>
+                    <option value="West River">West River</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td>Department: <select style="width: 170px;" class="form-control" id="Department" ng-model="ticket.t_Department">
+                    <option value="">--Department--</option>
+                    <option value="TSD">TSD</option>
+                    <option value="Children's">Children's</option>
+                    <option value="Circulation">Circulation</option>
+                    <option value="Reference">Reference</option>
+                    <option value="Adminstration">Adminstration</option>
+                    <option value="Young Adult">Young Adult</option>
+                    <option value="Clerk Treasurer">Clerk Treasurer</option>
+                    <option value="Public Relations">Public Relations</option>
+                    <option value="Audio Visual">Audio Visual</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Project Read">Project Read</option>
+                    
+                </select></td>
+        </tr>
+        <tr>
+            <td>Name: <input type="text" ng-model="ticket.t_Name" id="Name" name="Name" required ></td>
+        </tr>
+        <tr>
+            <td>Email: <input type="text" ng-model="ticket.t_Email" id="email" name="email" required ></td>
+        </tr>
+        <tr>
+            <td>Phone: <input type="text" ng-model="ticket.t_Phone" id="Phone" name="Phone" required ></td>
+        </tr>
+        <tr>
+            <td>Program: <input type="text" ng-model="ticket.t_Program" id="Program" name="Program" required ></td>
+        </tr>
+        <tr>
+            <td>Program Date: {{x.PDate}}</td>
+        </tr>
+        <tr>
+            <td>Needed by: {{x.DTRC}}</td>
+        </tr>
+        <tr>
+            <td><div>Project Type: </div><div class="checkbox-inline col-xs-3" style="margin-left: 10px;">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PDisplay" ng-true-value="'Yes'" ng-false-value="'No'"> Display</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PPressRel" ng-true-value="'Yes'" ng-false-value="'No'"> Press Release</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PBroch" ng-true-value="'Yes'" ng-false-value="'No'"> Brochure</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PFlyer" ng-true-value="'Yes'" ng-false-value="'No'"> Flyer</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PPoster" ng-true-value="'Yes'" ng-false-value="'No'"> Poster</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PBookmark" ng-true-value="'Yes'" ng-false-value="'No'"> Bookmark</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PBanner" ng-true-value="'Yes'" ng-false-value="'No'"> Banner</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-3">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PPhotoBooth" ng-true-value="'Yes'" ng-false-value="'No'"> PhotoBooth</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PNotNew" ng-true-value="'Yes'" ng-false-value="'No'"> This is not a new design, please re-design, I think it needs updating!</label>
+                    </div></td>
+        </tr>
+        <tr>
+            <td>Project Type Other: <input type="text" ng-model="ticket.t_Unlisted" style="width: 500px;" id="Unlisted" name="Unlisted" required ></td>
+        </tr>
+        <tr>
+            <td>Options: <div class="checkbox-inline col-xs-12" style="margin-left: 10px;">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_Some" ng-true-value="'Yes'" ng-false-value="'No'"> I have some ideas, so let's talk . . . Call me at the number listed above</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_HavePho" ng-true-value="'Yes'" ng-false-value="'No'"> I have photos for you</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_TheLogoMight" ng-true-value="'Yes'" ng-false-value="'No'"> The logo I need might be in your computer files</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PleaseDesign" ng-true-value="'Yes'" ng-false-value="'No'"> Please design a new logo</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_PrintColor" ng-true-value="'Yes'" ng-false-value="'No'"> I'd like to print this in color</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_BW" ng-true-value="'Yes'" ng-false-value="'No'"> Black & White is good enough</label>
+                    </div>
+                    <div class="checkbox-inline col-xs-12">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_HaveCopy" ng-true-value="'Yes'" ng-false-value="'No'"> I have copy that I will e-mail to you</label>
+                    </div></td>
+        </tr>
+        <tr>
+            <td>Instructions: {{x.v_Detail}}</td>
+        </tr>
+        <tr>
+            <td><div class="col-xs-1" style="margin-left: -15px;">Is Complete?:</div> <div class="checkbox-inline col-xs-3" style="">
+                        <label>
+                            <input type="checkbox"  ng-model="ticket.t_Completed" ng-true-value="'ClosedSa Ank'" ng-false-value="'OpenSa Ank'"> {{ticket.t_Completed}}</label>
+                    </div></td>
+        </tr>
+        <tr>
+            <td>Assigned to: <!--{{x.v_Head}}--></td>
+        </tr>
+        <tr>
+            <td>PR Comments: <textarea form="" type="text" ng-model="ticket.t_PRCom" id="Detail" name="Detail" placeholder="Internal Comments" maxlength="500" rows="10" cols="50" style="resize:none;"></textarea></td>
+        </tr>
+        <tr>
+                <td></td><td><input type="submit" ng-click="updticket(ticket); redirect();" ng-model="ticket.ticketSend" id="send"/></td>    
+        </tr>
+        </table>
+    </ng-form>
+</div>
